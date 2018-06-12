@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports: 
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=STi7hXedI5vxnRgJ
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./mysql_slave/data:/var/lib/mysql
+      - ./mysql_slave/my.cnf:/etc/mysql/conf.d/my.cnf
+    ports: 
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=yVHytbH8tcYkHU2P
