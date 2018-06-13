@@ -9,7 +9,7 @@ services:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=STi7hXedI5vxnRgJ
-  mysql:
+  mysql-slave:
     image: mysql:5.7
     volumes:
       - ./mysql_slave/data:/var/lib/mysql
