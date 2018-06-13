@@ -15,7 +15,6 @@ read_only=1
 log_slave_updates=1
 ```
 
-
 # 操作集
 
 ## 创建复制用户
@@ -37,8 +36,19 @@ log_slave_updates=1
 `mysql -uroot -p -h 192.168.100.150 -e 'source dump.db'`
 
 ## slave启动复制
+shell（\表示换行）
 ```
-change master to 
+change master to \
+        master_host='192.168.100.20', \
+        master_port=3306, \
+        master_user='repl', \
+        master_password='P@ssword1!', \
+        master_log_file='master-bin.000002', \
+        master_log_pos=154;
+```
+powershell（不带\）
+```
+change master to
         master_host='192.168.100.20',
         master_port=3306,
         master_user='repl',
@@ -46,4 +56,14 @@ change master to
         master_log_file='master-bin.000002',
         master_log_pos=154;
 ```
+
+启动
 `start slave;`
+
+## 查看复制状态
+`show slave status;`
+
+
+# docker中注意事项
+* 复制用户允许IP地址应为`%`，如`'repl'@'%'`
+* docker中`master_host`应该写入service名
