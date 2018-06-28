@@ -62,7 +62,7 @@ change master to
 `start slave;`
 
 ## 查看复制状态
-`show slave status;`
+`show slave status;\G`
 
 
 # docker中注意事项
