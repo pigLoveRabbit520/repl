@@ -13,6 +13,7 @@ server_id=589
 relay_log=mysql-relay-bin
 read_only=1
 log_slave_updates=1
+replicate-do-db=db_name
 ```
 
 # 操作集
